@@ -2,14 +2,14 @@ var express = require('express');
 var bodyParser = require('body-parser');
 
 var app = express();
-
+var port = process.env.PORT || 3000;
 // create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 var login = require('./Profile');
 
 app.get('/', function (req, res) {
-    res.end('hello this is home');
+    res.send(JSON.stringify({ Hello: 'World'}));
 });
 
 app.get('/Contact', function (req, res) {
@@ -29,5 +29,6 @@ app.post('/Profile', urlencodedParser, function (req, res) {
     }
 });
 
-app.listen(80)
-console.log('yo yo listening to localhost default port');
+app.listen(port, function(){
+    console.log('yo yo listening to localhost default port');
+});
