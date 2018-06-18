@@ -28,7 +28,7 @@ app.post('/Profile', urlencodedParser, function (req, res) {
         var password = req.body.password;
 
         var value = login(name, password);
-        res.end(value);
+        res.end(JSON.stringify(value));
     }
 });
 
