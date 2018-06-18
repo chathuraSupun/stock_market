@@ -10,7 +10,9 @@ var login = require('./Profile');
 
 app.get('/', function (req, res) {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.send(JSON.stringify({ Hello: 'World' }));
+    // return res.sendStatus(200);
+    res.end('hello this is home');
+    // res.end(JSON.stringify({ Hello: 'World' }));
 });
 
 app.get('/Contact', function (req, res) {
@@ -29,6 +31,9 @@ app.post('/Profile', urlencodedParser, function (req, res) {
         res.end(value);
     }
 });
+
+// app.listen(3000);
+// console.log('yo yo listening to localhost default port');
 
 app.listen(port, function () {
     console.log('yo yo listening to localhost default port');
