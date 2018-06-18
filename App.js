@@ -9,7 +9,8 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 var login = require('./Profile');
 
 app.get('/', function (req, res) {
-    res.send(JSON.stringify({ Hello: 'World'}));
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.send(JSON.stringify({ Hello: 'World' }));
 });
 
 app.get('/Contact', function (req, res) {
@@ -29,6 +30,6 @@ app.post('/Profile', urlencodedParser, function (req, res) {
     }
 });
 
-app.listen(port, function(){
+app.listen(port, function () {
     console.log('yo yo listening to localhost default port');
 });
